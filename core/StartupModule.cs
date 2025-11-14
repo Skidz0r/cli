@@ -28,6 +28,7 @@ namespace Cmf.CLI.Core
         /// <param name="registerExtraServices">function to add extra services to the ServiceProvider</param>
         public static async Task<Tuple<RootCommand, Parser>> Configure(string packageName, string envVarPrefix, string description, string[] args, INPMClient npmClient = null, Action<IServiceCollection> registerExtraServices = null)
         {
+            Log.Warning("New version telemetry assync 1.1");
             // in a scenario that cli is not running on a terminal,
             // the AnsiConsole.Profile.Width defaults to 80,which is a low value and causes unexpected break lines.
             // in that cases we need to double the value
