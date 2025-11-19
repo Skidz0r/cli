@@ -77,10 +77,7 @@ namespace Cmf.CLI.Core
                 ExecutionContext.ServiceProvider.GetService<ITelemetryService>()!.LogException(eventArgs.ExceptionObject as Exception);
             };
 
-            // Skip version check if the request comes from cmf-pipeline or cmf_dev
-            if( !envVarPrefix.Equals("cmf_pipeline") && !envVarPrefix.Equals("cmf_dev") ) {
-                await VersionChecks();
-            }
+            await VersionChecks();
 
             // add LogLevelOption
             rootCommand.AddOption(LoggerHelpers.LogLevelOption);
